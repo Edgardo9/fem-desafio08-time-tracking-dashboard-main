@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* PRIMARY */
+    --purple-600: hsl(246, 80%, 60%);
+    --orange-300-work: hsl(15, 100%, 70%);
+    --blue-300-play: hsl(195, 74%, 62%);
+    --pink-400-study: hsl(348, 100%, 68%);
+    --green-400-exercise: hsl(145, 58%, 55%);
+    --purple-700-social: hsl(264, 64%, 52%);
+    --yellow-300-self-care: hsl(43, 84%, 65%);
+
+    /* NEUTRAL */
+    --navy-950: hsl(226, 43%, 10%);
+    --navy-900: hsl(235, 46%, 20%);
+    --purple-500: hsl(235, 45%, 61%);
+    --navy-200: hsl(236, 100%, 87%);
+
+    --white: hsl(255, 100%, 100%);
+    --radius: .9375rem;
+    --card-inline-size: clamp(12.5rem, 70vw, 21.875rem);
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    color: var(--navy-200);
+    font-weight: 300;
+}
+
+.main__container {
+    min-block-size: 100vh;
+    padding-block: clamp(2rem, 7vw, 5rem);
+    background-color: var(--navy-950);
+    display: flex;
+}
+
+.cards__container {
+    inline-size: var(--card-inline-size);
+    margin: auto;
+    overflow: hidden;
+    opacity: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+    animation: show-card 1.3s forwards;
+}
+
+.card__head {
+    inline-size: var(--card-inline-size);
+    background-color: var(--navy-900);
+    border-radius: var(--radius);
+}
+
+.author {
+    background-color: var(--purple-600);
+    block-size: clamp(6.25rem, 30vw, 9.375rem);
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.author__img {
+    inline-size: clamp(2.5rem, 15vw, 3.125rem);
+    display: block;
+    margin-inline: auto;
+    border-radius: 1.875rem;
+    border: .1875rem solid var(--white);
+}
+
+.description-font, .card__previus {
+    font-size: clamp(.5rem, 3vw, .8rem);
+}
+
+.author__title {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    font-weight: 400;
+}
+
+.author__lapse {
+    inline-size: 100%;
+    block-size: clamp(4rem, 5vw, 5rem);
+    font-size: clamp(.7rem, 3vw, 1rem);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.lapse {
+    cursor: pointer;
+    color: var(--purple-200);
+    text-decoration: none;
+}
+
+.lapse--active {
+    color: var(--white);
+}
+
+.cards__detail {
+    inline-size: var(--card-inline-size);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+}
+
+.card {
+    block-size: clamp(9.375rem, 35vw, 10rem);
+    background-repeat: no-repeat;
+    background-position: right 5% top 0%;
+    background-size: clamp(2rem, 7vw, 3.125rem);
+    border-radius: var(--radius);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    animation: show-card 1.3s forwards;
+}
+
+.card[data-title="work"] {
+    background-color: var(--orange-300-work);
+    background-image: url(../images/icon-work.svg);
+}
+
+.card[data-title="play"] {
+    background-color: var(--blue-300-play);
+    background-image: url(../images/icon-play.svg);
+}
+
+.card[data-title="study"] {
+    background-color: var(--pink-400-study);
+    background-image: url(../images/icon-study.svg);
+}
+
+.card[data-title="exercise"] {
+    background-color: var(--green-400-exercise);
+    background-image: url(../images/icon-exercise.svg);
+}
+
+.card[data-title="social"] {
+    background-color: var(--purple-700-social);
+    background-image: url(../images/icon-social.svg);
+}
+
+.card[data-title="selfcare"] {
+    background-color: var(--yellow-300-self-care);
+    background-image: url(../images/icon-self-care.svg);
+}
+
+.card__data {
+    block-size: 80%;
+    inline-size: 100%;
+    background-color: var(--navy-900);
+    border-radius: var(--radius);
+    padding: clamp(.625rem, 5vw, 1.25rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--white);
+}
+
+.card__title {
+    font-size: clamp(.8rem, 4vw, 1.125rem);
+    font-weight: 400;
+}
+
+.card__opt-picture {
+    display: flex;
+}
+
+.card__opt-img {
+    margin: auto;
+}
+
+.card__hrs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card__current {
+    font-size: clamp(1.4rem, 3vw, 2.5rem);
+    color: var(--white);
+}
+
+.card__previus {
+    line-height: 2rem;
+}
+
+@media screen and (min-width: 50rem){
+    .cards__container {
+        inline-size: clamp(36.25rem, 70vw, 43.625rem);
+        grid-template-columns: minmax(9.375rem, 11.5625rem) 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .card__head {
+        inline-size: clamp(9.375rem, 70vw, 11.5625rem);
+    }
+
+    .author {
+        block-size: clamp(12.5rem, 50vw, 18.75rem);
+        padding: clamp(1.3rem, 2vw, 1.5rem);
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+
+    .author__lapse {
+        block-size: clamp(8rem, 15vw, 9rem);
+        padding: clamp(.7rem, 5vw, 1.1rem);
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+    }
+
+    .cards__detail {
+        inline-size: clamp(23.3125rem, 47vw, 31rem);
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+
+    .card__hrs {
+        flex-direction: column;
+    }
+
+    .card__data {
+        gap: .5rem;
+    }
+}
+
+@media screen and (min-width: 75rem){
+    .cards__container {
+        inline-size: clamp(36.25rem, 70vw, 50rem);
+    }
+
+    .cards__detail {
+        inline-size: clamp(23.3125rem, 47vw, 31rem);
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+        block-size: clamp(9.375rem, 35vw, 13.375rem);
+    }
+
+    .cards__detail {
+        inline-size: clamp(23.3125rem, 47vw, 37.5rem);
+        align-content: space-between;
+    }
+}
+
+@media (hover: hover) {
+    .lapse:hover  {
+        color: var(--white);
+    }
+}
+
+@keyframes show-card {
+    to {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cards__container, .card {
+    animation-duration: 0.01ms !important;
+  }
+}
