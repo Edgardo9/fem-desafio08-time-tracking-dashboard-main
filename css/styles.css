@@ -202,10 +202,6 @@ body {
     line-height: 2rem;
 }
 
-#nl-badge-frame {
-    display: none;
-}
-
 @media screen and (min-width: 50rem){
     .cards__container {
         inline-size: clamp(36.25rem, 70vw, 43.625rem);

@@ -20,7 +20,7 @@ async function getDataJson() {
 
 function addNodeCard(data, lapsus="Weekly") {
     cardsDetailCont.textContent = "";
-    for(let cardData of data) {
+    for(const cardData of data) {
         createNodes(cardData, lapsus)
     }
 }
