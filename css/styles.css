@@ -202,6 +202,10 @@ body {
     line-height: 2rem;
 }
 
+#nl-badge-frame {
+    display: none;
+}
+
 @media screen and (min-width: 50rem){
     .cards__container {
         inline-size: clamp(36.25rem, 70vw, 43.625rem);
@@ -249,17 +253,13 @@ body {
         inline-size: clamp(36.25rem, 70vw, 50rem);
     }
 
-    .cards__detail {
-        inline-size: clamp(23.3125rem, 47vw, 31rem);
-        grid-template-columns: repeat(3, 1fr);
-    }
-
     .card {
         block-size: clamp(9.375rem, 35vw, 13.375rem);
     }
 
     .cards__detail {
         inline-size: clamp(23.3125rem, 47vw, 37.5rem);
+        grid-template-columns: repeat(3, 1fr);
         align-content: space-between;
     }
 }
@@ -278,6 +278,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .cards__container, .card {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms;
   }
 }
