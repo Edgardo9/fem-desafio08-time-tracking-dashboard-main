@@ -5,7 +5,8 @@ let dataJsonLocal = "";
 
 async function getDataJson() {
     try {
-        const req = new Request("http://127.0.0.1:5500/data.json");
+        const API_URL = window.location.origin;
+        const req = new Request(`${API_URL}/data.json`);
         const response = await fetch(req);
         if(!response.ok) {
             throw new Error(response.status)
